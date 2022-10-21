@@ -1,10 +1,13 @@
-import Cards from "./components/Cards";
+// import Bg from "./assets/background-img.svg";
+import { BrowserRouter } from "react-router-dom";
 
-function App() {
+import RoutesRockr from "./routes/routes";
+
+function App(): JSX.Element {
   return (
-    <div className="App">
-      <Cards />
-    </div>
+    <BrowserRouter>
+      <RoutesRockr />
+    </BrowserRouter>
   );
 }
 

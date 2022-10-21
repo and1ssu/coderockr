@@ -1,107 +1,104 @@
 {
-    "env": {
+  "root": true,
+  "env": {
     "browser": true,
     "es2021": true,
     "jest": true
-    },
-    "extends": [
-    "plugin:react/recommended",
+  },
+  "extends": [
     "airbnb",
+    "plugin:react/recommended",
     "plugin:@typescript-eslint/recommended",
-    "prettier",
-    "plugin:prettier/recommended"
-    ],
-    "parser": "@typescript-eslint/parser",
-    "parserOptions": {
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
     "ecmaFeatures": {
-    "jsx": true
+      "jsx": true
     },
     "ecmaVersion": 12,
     "sourceType": "module"
-    },
-    "plugins": [
-    "react",
-    "@typescript-eslint",
-    "eslint-plugin-import-helpers",
-    "prettier"
+  },
+  "plugins": ["react", "react-hooks", "@typescript-eslint", "prettier"],
+  "rules": {
+    "react/function-component-definition": [
+      2,
+      {
+        "namedComponents": "function-declaration"
+      }
     ],
-    "rules": {
-    "camelcase": "off",
-    "import/no-unresolved": "error",
-    "@typescript-eslint/naming-convention": [
-    "error",
-    {
-    "selector": "interface",
-    "format": [
-    "PascalCase"
-    ],
-    "custom": {
-    "regex": "^I[A-Z]",
-    "match": true
-    }
-    }
-    ],
-    "class-methods-use-this": "off",
-    "import/prefer-default-export": "off",
-    "no-shadow": "off",
-    "no-console": "off",
-    "no-useless-constructor": "off",
-    "no-empty-function": "off",
-    "lines-between-class-members": "off",
-    "import/extensions": [
-    "error",
-    "ignorePackages",
-    {
-    "ts": "never",
-    "tsx": "never"
-    }
-    ],
-    "import-helpers/order-imports": [
-    "warn",
-    {
-    "newlinesBetween": "always",
-    "groups": [
-    "module",
-    "/^@shared/",
-    [
-    "parent",
-    "sibling",
-    "index"
-    ]
-    ],
-    "alphabetize": {
-    "order": "asc",
-    "ignoreCase": true
-    }
-    }
-    ],
-    "import/no-extraneous-dependencies": [
-    "error",
-    {
-    "devDependencies": [
-    "**/*.spec.js"
-    ]
-    }
-    ],
-    "prettier/prettier": "error",
-    "react/jsx-filename-extension": [
-    1,
-    {
-    "extensions": [
-    ".jsx",
-    ".tsx"
-    ]
-    }
-    ],
+    "react/no-array-index-key": "off",
+    "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
-    "no-use-before-define": "off",
-    "@typescript-eslint/no-use-before-define": [
-    "error"
+    "react/require-default-props": "off",
+    "prettier/prettier": "error",
+    "react/jsx-indent": "off",
+    "react/jsx-indent-props": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "react/jsx-filename-extension": [1, { "extensions": [".tsx", ".svg"] }],
+    "react/jsx-props-no-spreading": "off",
+    "react/jsx-one-expression-per-line": "off",
+    "react/prop-types": "off",
+    "no-use-before-define": "error",
+    "no-unused-expressions": "off",
+    "no-param-reassign": "off",
+    "no-shadow": "off",
+    "camelcase": "off",
+    "import/prefer-default-export": "off",
+    "import/no-duplicates": "off",
+    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/camelcase": "off",
+    "@typescript-eslint/explicit-function-return-type": "error",
+    "@typescript-eslint/ban-ts-ignore": "off",
+    "@typescript-eslint/no-use-before-define": "off",
+    "import/no-unresolved": "off",
+    "no-console": ["warn", { "allow": ["info", "clear"] }],
+    "no-underscore-dangle": "off",
+    "react/jsx-wrap-multilines": [
+      "warn",
+      { "declaration": false, "assignment": false }
+    ],
+    "@typescript-eslint/ban-ts-comment": "off",
+    "@typescript-eslint/no-unused-vars": [
+      "error",
+      {
+        "varsIgnorePattern": "^_",
+        "argsIgnorePattern": "^_"
+      }
+    ],
+    "import/extensions": [
+      "error",
+      "ignorePackages",
+      {
+        "ts": "never",
+        "tsx": "never"
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": ["builtin", "external", "internal"],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": ["react"],
+        "newlines-between": "always",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
     ]
-    },
-    "settings": {
+  },
+  "settings": {
     "import/resolver": {
-    "typescript": {}
+      "typescript": {}
     }
-    }
-    }
+  }
+}

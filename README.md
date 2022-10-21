@@ -24,4 +24,5 @@ Caso a após iniciar o projeto, aparecer algum erro de prettier, abrir os arquiv
 
 # Bibliotecas usadas
 [Material UI](https://mui.com/pt/) Design System
-
+Axios
+react-router-dom
