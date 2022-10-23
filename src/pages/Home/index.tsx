@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 import Cards from "../../components/Cards";
 import { api } from "../../services/api";
@@ -16,20 +16,12 @@ export default function Home(): JSX.Element {
   const classes = useStyles();
   const [data, setData] = useState<IData[]>();
 
-  const getData = useCallback(async () => {
-    try {
-      const { data } = await api.get("/articles");
-      setData(data);
-    } catch (error: any) {
-      const logError = { ...error };
-      console.log(logError);
-    }
-  }, []);
-  console.log(data);
   useEffect(() => {
-    getData();
-  }, [getData]);
-
+    api.get("/articles?per_page=1&_page=5").then(({ data }) => {
+      setData(data);
+    });
+  }, []);
+  console.log(data?.length);
   return (
     <div className={classes.bg}>
       {data?.map((item) => {

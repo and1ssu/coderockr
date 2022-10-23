@@ -13,15 +13,14 @@ const useStyles = makeStyles(() => ({
     wordBreak: "break-all",
   },
   mdGrid: {
-    backgroundColor: "#FFFFFF",
     width: "540px",
     height: "540px",
     overflow: "hidden",
   },
   mdGridTx: {
     backgroundColor: "#FFFFFF",
-    width: "540px",
-    height: "540px",
+    width: "502px",
+    height: "502px",
     overflow: "hidden",
     alignContent: "center",
     display: "flex",
@@ -46,6 +45,10 @@ const useStyles = makeStyles(() => ({
     fontSize: "24px",
     lineHeight: "34px",
     marginBotton: "15px",
+    overflow: "hidden",
+    maxWidth: "360ch",
+    textOverflow: "ellipsis",
+    whiteSpace: "nowrap",
   },
 }));
 
