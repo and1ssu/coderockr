@@ -14,14 +14,27 @@ interface IData {
 
 export default function Home(): JSX.Element {
   const classes = useStyles();
-  const [data, setData] = useState<IData[]>();
+  const [data, setData] = useState<IData[]>([]);
+  const [currentPage, setCurrentPage] = useState(5);
 
   useEffect(() => {
-    api.get("/articles?per_page=1&_page=5").then(({ data }) => {
+    api.get(`/articles?_page=1&_limit=${currentPage}`).then(({ data }) => {
       setData(data);
     });
+  }, [currentPage]);
+
+  useEffect(() => {
+    const intersectionObserver: any = new IntersectionObserver((entries) => {
+      if (entries.some((entry) => entry.isIntersecting)) {
+        setCurrentPage((currentPageInsideState) => currentPageInsideState + 2);
+      }
+    });
+
+    intersectionObserver.observe(document.querySelector("#sentinela"));
+
+    return () => intersectionObserver.disconnect();
   }, []);
-  console.log(data?.length);
+
   return (
     <div className={classes.bg}>
       {data?.map((item) => {
@@ -34,7 +47,8 @@ export default function Home(): JSX.Element {
             imageUrl={item.imageUrl}
           />
         );
-      })}
+      })}{" "}
+      <li id="sentinela" />
     </div>
   );
 }
