@@ -37,10 +37,11 @@ export default function Home(): JSX.Element {
 
   return (
     <div className={classes.bg}>
-      {data?.map((item) => {
+      {data?.map((item, index) => {
         return (
           <Cards
-            key={item.id}
+            key={index}
+            id={item.id}
             author={item.author}
             title={item.title}
             article={item.article}

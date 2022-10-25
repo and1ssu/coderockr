@@ -14,7 +14,7 @@ const useStyles = makeStyles(() => ({
   },
   mdGrid: {
     width: "540px",
-    height: "540px",
+    height: "502px",
     overflow: "hidden",
   },
   mdGridTx: {

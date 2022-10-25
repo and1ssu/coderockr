@@ -7,6 +7,7 @@ interface IData {
   title: string;
   article: string;
   imageUrl: string;
+  id: string;
 }
 
 export default function Cards({
@@ -14,9 +15,10 @@ export default function Cards({
   title,
   article,
   imageUrl,
+  id,
 }: IData): JSX.Element {
   const classes = useStyles();
-
+  console.log(id);
   return (
     <>
       <Grid container mt={5}>
