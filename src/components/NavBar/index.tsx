@@ -127,9 +127,11 @@ export default function NavBar(props: Props): JSX.Element {
           {drawer}
         </Drawer>
       </Box>
-      <Box component="main" sx={{ p: 3 }}>
-        <Toolbar />
-      </Box>
+      <Box
+        sx={{
+          p: 3,
+        }}
+      />
       <Dialog open={open} onClose={handleClose}>
         <Contato />
       </Dialog>

@@ -21,7 +21,7 @@ export default function Cards({
   console.log(id);
   return (
     <>
-      <Grid container mt={5}>
+      <Grid container mb={5}>
         <Grid item xl={2} className={classes.smGrid}>
           <img src={imageUrl} alt="img" />
         </Grid>
@@ -39,7 +39,7 @@ export default function Cards({
           <p className={classes.text}>{article}</p>
         </Grid>
       </Grid>
-      <Grid container mt={5}>
+      <Grid container mb={5}>
         <Grid item xl={4}>
           {" "}
         </Grid>
@@ -52,7 +52,7 @@ export default function Cards({
           <p className={classes.text}>{article}</p>
         </Grid>
       </Grid>
-      <Grid container mt={5}>
+      <Grid container mb={5}>
         <Grid item xl={4} className={classes.smGridTx} p={3}>
           <p className={classes.author}>{author}</p>
           <span className={classes.title}>{title}</span>
@@ -70,7 +70,7 @@ export default function Cards({
         <Grid item xl={2} className={classes.smGrid}>
           <img src={imageUrl} alt="img" />
         </Grid>
-        <Grid container mt={5}>
+        <Grid container mb={5} mt={5}>
           <Grid item xl={4} className={classes.mdGrid}>
             <img src={imageUrl} alt="img" style={{ width: "100%" }} />
           </Grid>
