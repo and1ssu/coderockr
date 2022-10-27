@@ -1,25 +1,36 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import Bg from "./assets/background-img.svg";
+import { createTheme, ThemeProvider } from "@mui/material";
+import { BrowserRouter } from "react-router-dom";
 
-function App() {
+import NavBar from "./components/NavBar";
+import { DataProvider } from "./context/DataProvider";
+import RoutesRockr from "./routes/routes";
+
+const theme = createTheme({
+  components: {
+    MuiCssBaseline: {
+      styleOverrides: `
+        iframe {
+          z-index: -1 !important;
+         }
+      `,
+    },
+  },
+
+  typography: {
+    fontFamily: ["Rubik"].join(","),
+  },
+});
+function App(): JSX.Element {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <BrowserRouter>
+        <NavBar />
+        <DataProvider>
+          <RoutesRockr />
+        </DataProvider>
+      </BrowserRouter>
+    </ThemeProvider>
   );
 }
 
