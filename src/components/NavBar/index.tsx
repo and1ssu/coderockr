@@ -95,7 +95,7 @@ export default function NavBar(props: Props): JSX.Element {
                 sx={{ color: "#fff" }}
                 onClick={(): void => {
                   if (item === "Posts") {
-                    navigate("/card");
+                    navigate("/");
                   } else {
                     handleClickOpen();
                   }

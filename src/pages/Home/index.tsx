@@ -1,27 +1,18 @@
 import { useEffect, useState } from "react";
 
 import Cards from "../../components/Cards";
-import { api } from "../../services/api";
+import { useCreateData } from "../../context/DataProvider/useCreateData";
 import useStyles from "./styled";
-
-interface IData {
-  id: string;
-  author: string;
-  title: string;
-  article: string;
-  imageUrl: string;
-}
 
 export default function Home(): JSX.Element {
   const classes = useStyles();
-  const [data, setData] = useState<IData[]>([]);
+  const { getArticle, articles } = useCreateData();
+
   const [currentPage, setCurrentPage] = useState(5);
 
   useEffect(() => {
-    api.get(`/articles?_page=1&_limit=${currentPage}`).then(({ data }) => {
-      setData(data);
-    });
-  }, [currentPage]);
+    getArticle(currentPage);
+  }, [getArticle, currentPage]);
 
   useEffect(() => {
     const intersectionObserver: any = new IntersectionObserver((entries) => {
@@ -37,18 +28,17 @@ export default function Home(): JSX.Element {
 
   return (
     <div className={classes.bg}>
-      {data?.map((item, index) => {
+      {articles?.map((item, index) => {
         return (
           <Cards
             key={index}
-            id={item.id}
             author={item.author}
             title={item.title}
             article={item.article}
             imageUrl={item.imageUrl}
           />
         );
-      })}{" "}
+      })}
       <li id="sentinela" />
     </div>
   );

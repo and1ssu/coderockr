@@ -23,6 +23,11 @@ Você também verá quaisquer erros de lint no console.
 Caso a após iniciar o projeto, aparecer algum erro de prettier, abrir os arquivos com erro, e no canto inferior direito da sua IDE localizar a sigla  CRLF e alterarar para LF.
 
 # Bibliotecas usadas
-[Material UI](https://mui.com/pt/) Design System
-Axios
-react-router-dom
+[Material UI](https://mui.com/pt/) Design System \
+Escolhi o material , por ja estar familiarizado, e  por sua documentação ser bem completa
+
+[Axios](https://axios-http.com/ptbr/docs/intro) Cliente HTTP \
+Considero o axios uma otima ferramenta para consumir apis
+
+[React Router](https://reactrouter.com/en/main) Roteamento do lado do cliente \
+Um otimo hook para navegação, muito completo  e traz facilidades que ajudam muito no desenvolvimento

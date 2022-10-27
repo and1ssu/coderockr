@@ -1,17 +1,33 @@
 import * as React from "react";
 
-import DialogActions from "@mui/material/DialogActions";
+import SendIcon from "@mui/icons-material/Send";
+import { Button, TextareaAutosize, Typography } from "@mui/material";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
-import TextareaAutosize from "@mui/material/TextareaAutosize";
 import TextField from "@mui/material/TextField";
 
 export default function Contato(): JSX.Element {
   return (
     <div>
-      <DialogTitle>Contact</DialogTitle>
+      <DialogTitle
+        sx={{
+          display: "flex",
+          justifyContent: "center",
+          color: "#F1A10A",
+          fontweight: "700",
+          fontSize: "36px",
+        }}
+      >
+        Contact
+      </DialogTitle>
 
       <DialogContent>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        />
         <TextField
           autoFocus
           margin="dense"
@@ -39,17 +55,32 @@ export default function Contato(): JSX.Element {
           fullWidth
           variant="outlined"
         />
+        <Typography mt={5}> Post</Typography>
         <TextareaAutosize
-          aria-label="minimum height"
-          minRows={3}
-          placeholder="Minimum 3 rows"
-          style={{ width: 200 }}
+          aria-label="empty textarea"
+          placeholder="Hello..."
+          style={{ marginTop: 11, width: "550px", height: "200px" }}
         />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+          }}
+        >
+          <Button
+            variant="contained"
+            startIcon={<SendIcon />}
+            sx={{
+              background: "#2D2D2D",
+              "&:hover": {
+                background: "#F1A10A",
+              },
+            }}
+          >
+            Submit
+          </Button>
+        </div>
       </DialogContent>
-      <DialogActions>
-        {/* <Button onClick={handleClose}>Cancel</Button>
-        <Button onClick={handleClose}>Subscribe</Button> */}
-      </DialogActions>
     </div>
   );
 }

@@ -1,22 +1,33 @@
+import { Grid } from "@mui/material";
+
+import { useCreateData } from "../../context/DataProvider/useCreateData";
 import useStyles from "./styled";
 
 export default function Card(): JSX.Element {
+  const { articles } = useCreateData();
   const classes = useStyles();
+
   return (
     <div className={classes.bg}>
-      <div>
-        {/* <Grid container>
-          <Grid item xl={6} className={classes.mdGrid}>
-            <img src={imageUrl} alt="img" style={{ width: "100%" }} />
+      <div className={classes.card}>
+        <Grid container>
+          <Grid item xl={6}>
+            <img
+              src={articles[0].imageUrl}
+              alt="imagem"
+              className={classes.mdGrid}
+            />
           </Grid>
-          <Grid item xl={6} className={classes.mdGridTx} p={5}>
-            <p className={classes.author}>{author}</p>
-            <span className={classes.title}>{title}</span>
-            <p className={classes.text}>{article}</p>
+          <Grid item xl={6} className={classes.mdGridTx}>
+            <p className={classes.author}>{articles[0].author}</p>
+            <span className={classes.title}>{articles[0].title}</span>
           </Grid>
-        </Grid> */}
-        <h1>teste</h1>
-        <h5>teste</h5>
+        </Grid>
+        <Grid container className={classes.divTxt}>
+          <div className={classes.divTxt}>
+            <p className={classes.text}>{articles[0].article}</p>
+          </div>
+        </Grid>
       </div>
     </div>
   );
